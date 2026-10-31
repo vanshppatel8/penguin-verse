@@ -1,85 +1,280 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#fff0f3">
-<title>Penguin Verse — Little surprises, big feelings</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penguin Verse — A Little World Full of Surprises</title>
+<meta name="theme-color" content="#fff4f6">
 <style>
-:root{--ink:#442b3a;--muted:#856d79;--pink:#ec6b96;--rose:#b92f63;--cream:#fff8ed;--paper:#fffdf9;--line:#f0dce3;--shadow:0 18px 55px #74364d18}
-*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 10% 10%,#ffe0e8,transparent 32%),radial-gradient(circle at 95% 30%,#fff0c9,transparent 28%),#fff8f2;min-height:100vh}
-button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1120px;margin:auto;padding:20px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 26px}.brand{font-size:25px;font-weight:bold;letter-spacing:.2px}.brand span{color:var(--rose)}.tag{font:12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-.pill{border:1px solid var(--line);background:#fff9;border-radius:99px;padding:9px 14px;color:var(--ink);font:12px Arial,sans-serif}
-.hero{text-align:center;padding:32px 12px 26px}.eyebrow{font:11px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--rose)}h1{font-size:clamp(38px,7vw,68px);line-height:1.02;margin:14px 0 12px;font-weight:normal}h1 em{color:var(--rose)}.sub{font:15px/1.7 Arial,sans-serif;color:var(--muted);max-width:580px;margin:0 auto}
-.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:20px 0 26px}.tab{border:1px solid var(--line);background:#fff9;padding:11px 17px;border-radius:30px;color:var(--ink);font:13px Arial,sans-serif}.tab.active{background:#51283f;color:white;border-color:#51283f}
-.panel{background:#fffdf9eF;border:1px solid #f1dce3;border-radius:24px;box-shadow:var(--shadow);padding:clamp(18px,4vw,34px);max-width:850px;margin:0 auto 28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}.field label{font:12px Arial,sans-serif;color:#765967;letter-spacing:.5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 13px;color:var(--ink);outline:none;font:14px Arial,sans-serif}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pink);box-shadow:0 0 0 3px #ec6b9620}.wide{grid-column:1/-1}.hint{font:11px/1.5 Arial,sans-serif;color:var(--muted);margin-top:-7px}
-.btn{border:0;border-radius:99px;padding:13px 22px;background:linear-gradient(110deg,#ed6d99,#c83f75);color:white;font:13px Arial,sans-serif;box-shadow:0 8px 20px #d94c7c33}.btn.secondary{background:#fff;color:var(--rose);border:1px solid var(--line);box-shadow:none}.btn.dark{background:#51283f}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}.section-title{font-size:25px;font-weight:normal;margin:0 0 8px}.section-note{font:13px/1.6 Arial,sans-serif;color:var(--muted);margin:0 0 22px}
-.preview{max-width:500px;margin:0 auto;text-align:center;background:linear-gradient(150deg,#fff8e9,#fff0f4);border:1px solid #f2d9df;border-radius:22px;padding:30px 22px;min-height:430px;position:relative;overflow:hidden}.preview.luxe{background:radial-gradient(circle at 50% 35%,#5e3154,#241426 75%);color:#fff2dd;border-color:#68425e}.preview.cute{background:linear-gradient(145deg,#fef0f5,#fef8d9)}.preview h2{font-size:34px;font-weight:normal;margin:15px 0 8px}.preview p{font:14px/1.7 Arial,sans-serif;color:inherit;opacity:.82}.gift{font-size:100px;display:block;filter:drop-shadow(0 12px 12px #a83d5b25);animation:bob 2.5s ease-in-out infinite;cursor:pointer}.heart{font-size:38px;animation:pulse 1.4s infinite;display:inline-block}.ornament{font-size:25px;letter-spacing:10px;color:#cf7292;margin:18px 0}.promise{display:flex;align-items:flex-start;gap:10px;text-align:left;background:#fff9;border:1px solid #f1dce3;border-radius:12px;padding:10px;margin:8px 0;font:13px Arial,sans-serif}.promise input{accent-color:#d84e80;margin-top:2px}.small{font:11px Arial,sans-serif;color:var(--muted)}.door{margin:22px auto 10px;width:190px;height:230px;border:5px solid #c68a9f;border-radius:95px 95px 8px 8px;background:linear-gradient(90deg,#5d2448,#9d426d);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 25px #290d25;color:#ffe7b7;font-size:48px;cursor:pointer}.hidden{display:none!important}.foot{text-align:center;color:#a48c98;font:11px Arial,sans-serif;padding:15px 0 28px}.notice{font:12px/1.5 Arial,sans-serif;background:#fff1f5;border:1px solid #f5d2df;padding:12px 14px;border-radius:12px;color:#79445b;margin:16px 0}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
-@media(max-width:650px){.app{padding:13px}.top{margin-bottom:10px}.brand{font-size:21px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.hero{padding:26px 6px 18px}.panel{border-radius:19px}.preview{min-height:400px;padding:25px 17px}}
+:root{--bg:#fff4f6;--ink:#382b38;--pink:#f3a6b8;--deep:#b94f73;--cream:#fffaf3;--mint:#d9eee6;--gold:#e8c77b}
+*{box-sizing:border-box}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 15% 35%,#ffffff80 0 2px,transparent 3px),
+    radial-gradient(circle at 85% 65%,#ffffff90 0 3px,transparent 4px),
+    radial-gradient(circle at 70% 15%,#f3a6b850 0 4px,transparent 5px);
+  background-size:180px 180px,230px 230px,280px 280px;
+  animation:glowFloat 12s linear infinite;
+}
+@keyframes glowFloat{
+  from{background-position:0 0,0 0,0 0}
+  to{background-position:0 -180px,0 -230px,0 -280px}
+}body{margin:0;background:radial-gradient(circle at 10% 10%,#ffe1e9,transparent 32%),radial-gradient(circle at 90% 20%,#e6f5ee,transparent 30%),var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:999px;padding:12px 20px;background:var(--deep);color:white;box-shadow:0 7px 18px #b94f7330;transition:.2s}button{
+  background:linear-gradient(135deg,#b94f73,#d77e9b);
+  color:white;
+  border:1px solid #ffffff50;
+  box-shadow:0 9px 22px #b94f7335;
+  transition:all .3s ease;
+}
+button:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 13px 28px #b94f7350;
+  filter:brightness(1.06);
+}
+button:active{
+  transform:scale(.97);
+}
+button.secondary{
+  background:linear-gradient(145deg,#fff,#fff5f8);
+  color:#a34d6c;
+  border:1px solid #efc4cf;
+  box-shadow:0 5px 14px #b94f7310;
+}button.secondary{background:#fff;color:var(--deep);border:1px solid #efc4cf;box-shadow:none}
+.wrap{max-width:920px;margin:auto;padding:22px 16px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-size:14px;letter-spacing:3px;font-family:Arial,sans-serif;font-weight:bold;color:var(--deep)}.music{font:13px Arial,sans-serif}
+.hero{
+  text-align:center;
+  padding:55px 16px 38px;
+  position:relative;
+  animation:heroFade 1.2s ease both;
+}
+.hero .penguin{
+  font-size:76px;
+  display:inline-block;
+  animation:penguinFloat 3s ease-in-out infinite;
+  filter:drop-shadow(0 12px 15px #b94f7350);
+}
+.hero h1{
+  font-size:clamp(42px,9vw,72px);
+  letter-spacing:1px;
+  background:linear-gradient(120deg,#8d4561,#d986a1,#b58a48);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 8px 25px #d986a130;
+}
+.hero .tag{
+  letter-spacing:5px;
+  font-size:11px;
+}
+.hero .intro{
+  font-size:16px;
+  max-width:540px;
+}
+@keyframes heroFade{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes penguinFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-12px) rotate(3deg)}
+}.penguin{font-size:58px;filter:drop-shadow(0 8px 8px #8b556522)}h1{font-size:clamp(34px,7vw,58px);margin:8px 0;color:#8d4561;font-weight:normal}.tag{font:11px Arial,sans-serif;letter-spacing:3px;color:#997783}.intro{max-width:590px;margin:14px auto;color:#765d6a;line-height:1.6}
+.magic-divider{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:28px;
+  margin:12px auto 25px;
+  color:#c77c98;
+  font-size:24px;
+  animation:dividerGlow 3s ease-in-out infinite;
+}
+.magic-divider span:nth-child(2){
+  font-size:34px;
+  color:#d986a1;
+}
+@keyframes dividerGlow{
+  0%,100%{opacity:.65;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.08)}
+}.panel{
+  background:linear-gradient(145deg,#ffffffed,#fff7fae8);
+  border:1px solid #ffffff;
+  box-shadow:0 22px 65px #9e557522, inset 0 1px 0 #ffffff;
+  border-radius:30px;
+  padding:28px;
+  margin:22px auto;
+  backdrop-filter:blur(14px);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.panel:hover{
+  transform:translateY(-3px);
+  box-shadow:0 28px 75px #9e557530;
+}
+h2{font-weight:normal;color:#8d4561;text-align:center;margin:0 0 16px;font-size:27px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px;font:13px Arial,sans-serif;color:#806675}.field.full{grid-column:1/-1}input,select,textarea{width:100%;border:1px solid #ead3dc;background:#fffdfd;border-radius:12px;padding:12px;color:#493744;outline:none}textarea{min-height:74px;resize:vertical}input,select,textarea{
+  width:100%;
+  border:1px solid #ead3dc;
+  background:linear-gradient(145deg,#fff,#fffafb);
+  border-radius:16px;
+  padding:14px;
+  color:#493744;
+  outline:none;
+  box-shadow:inset 0 2px 5px #9e557208;
+  transition:all .3s ease;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#d986a1;
+  box-shadow:0 0 0 4px #f3a6b830,0 8px 20px #b94f7310;
+  background:#fff;
+}
+.occasion{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.occasion button{background:#fff;color:#865269;border:1px solid #f0d3dc;box-shadow:none;padding:13px 8px;font-size:14px}.occasion button{
+  background:linear-gradient(145deg,#fff,#fff5f8);
+  color:#865269;
+  border:1px solid #f0d3dc;
+  box-shadow:0 5px 14px #b94f7310;
+  padding:14px 10px;
+  font-size:14px;
+  transition:all .3s ease;
+}
+.occasion button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 22px #b94f7325;
+  border-color:#df9bb0;
+}
+.occasion button.active{
+  background:linear-gradient(135deg,#f8dce5,#fcecf1);
+  border:1px solid #df9bb0;
+  color:#77364f;
+  box-shadow:0 7px 20px #b94f7325;
+  transform:translateY(-2px);
+}
+.center{text-align:center}.hidden{display:none!important}.stage-title{font-size:clamp(26px,5vw,38px);text-align:center;color:#8d4561;margin:8px 0}.stage-desc{text-align:center;color:#806675;line-height:1.5}.progress{height:7px;background:#f2e2e8;border-radius:9px;overflow:hidden;margin:18px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#d986a1,#e8c77b);transition:.4s}.stage-art{
+  min-height:270px;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  background:radial-gradient(circle,#fff7fa 0%,#fff0f5 55%,transparent 100%);
+  margin:12px 0;
+  animation:artAppear .7s ease both;
+}
+@keyframes artAppear{
+  from{opacity:0;transform:scale(.94)}
+  to{opacity:1;transform:scale(1)}
+}
+.heart{
+ font-size:130px;
+  position:relative;
+  filter:drop-shadow(0 12px 10px #a84f6c30);
+  line-height:1;
+  z-index:1;
+}
+.bow{font-size:48px;
+  position:absolute;
+  top:24px;
+  left:calc(50% - 24px);
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  z-index:2;
+}.gift{font-size:110px;cursor:pointer;transition:.2s}.gift.shake{animation:shake .45s}.letter{background:#fff8e9;border:1px solid #ead8b5;border-radius:8px;padding:22px 28px;max-width:290px;box-shadow:0 12px 25px #775c2820;transform:rotate(-2deg);cursor:pointer;font-size:18px;line-height:1.6}.balloon{font-size:100px;cursor:pointer;display:inline-block;transition:.2s}.balloon.pop{animation:pop .35s forwards}@keyframes shake{25%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}75%{transform:rotate(-6deg)}}@keyframes pop{to{transform:scale(1.8);opacity:0}}.message{background:#fff8fa;border:1px dashed #e2a9bb;padding:18px;border-radius:18px;margin:16px auto;max-width:600px;line-height:1.7;color:#70495b;white-space:pre-wrap}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}.foot{text-align:center;color:#a18491;font:12px Arial,sans-serif;padding:20px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.occasion{grid-template-columns:repeat(2,1fr)}.panel{padding:18px}.top{align-items:flex-start}.brand{letter-spacing:2px}}
 </style>
 </head>
 <body>
-<div class="app">
-<header class="top"><div><div class="brand">🐧 <span>Penguin</span> Verse</div><div class="tag">little surprises · big feelings</div></div><button class="pill" id="homeBtn">⌂ Home</button></header>
-<section class="hero" id="hero"><div class="eyebrow">A tiny corner of the internet, made with love</div><h1>Make someone feel<br><em>extra special.</em></h1><p class="sub">Create a personal digital surprise for your favourite person. Add your words, choose a mood, and share one little link that can make their day.</p></section>
-<nav class="tabs" id="tabs"><button class="tab active" data-tab="create">Create a surprise</button><button class="tab" data-tab="preview">Preview</button><button class="tab" data-tab="how">How it works</button></nav>
-<main>
-<section id="createPanel" class="panel">
-<h2 class="section-title">Your surprise, your story ✨</h2><p class="section-note">Fill in a few details. Your surprise is built right here in your browser.</p>
-<div class="grid">
-<div class="field"><label>FROM</label><input id="from" maxlength="35" placeholder="Your name" value="Someone special"></div>
-<div class="field"><label>TO</label><input id="to" maxlength="35" placeholder="Their name" value="My favourite person"></div>
-<div class="field"><label>OCCASION</label><select id="occasion"><option>Just because</option><option>Birthday</option><option>Anniversary</option><option>I'm sorry</option><option>Thank you</option><option>Long distance love</option><option>Friendship</option><option>Congratulations</option></select></div>
-<div class="field"><label>DESIGN MOOD</label><select id="theme"><option value="mix">A little bit of everything</option><option value="romantic">Romantic blush</option><option value="luxe">Midnight luxury</option><option value="cute">Cute & playful</option></select></div>
-<div class="field wide"><label>YOUR PERSONAL MESSAGE</label><textarea id="message" maxlength="600" placeholder="Write something from your heart...">You make ordinary days feel a little more magical. I hope this small surprise reminds you how special you are.</textarea></div>
-<div class="field wide"><label>YOUR PROMISES / LITTLE REASONS</label><textarea id="promises" maxlength="500" placeholder="One promise per line">I will always cheer for your dreams.\nI will listen, even on the difficult days.\nI will keep finding reasons to make you smile.\nI will celebrate the little things with you.</textarea><div class="hint">Write one promise or reason per line. You can also use this for friendship, family or a thank-you.</div></div>
-<div class="field wide"><label>ENDING LINE</label><input id="ending" maxlength="100" value="You are one of my favourite parts of this world."></div>
+<div class="wrap">
+ <div class="top"><div class="brand">🐧 PENGUIN VERSE</div><button class="secondary music" id="musicBtn" type="button">♫ Music: Off</button></div>
+ <header class="hero">
+  <div class="penguin">🐧</div>
+  <h1>Penguin Verse</h1>
+  <div class="tag">A LITTLE WORLD FULL OF SURPRISES</div>
+  <p class="intro">A tiny magical place to make someone feel special. Choose an occasion, add your names and secret messages, then let the little surprises begin.</p>
+</header>
+<div class="magic-divider">
+  <span>✧</span>
+  <span>♡</span>
+  <span>✧</span>
 </div>
-<div class="actions"><button class="btn" id="makeBtn">Create my surprise ♥</button><button class="btn secondary" id="resetBtn">Reset example</button></div>
-<div class="notice">Privacy note: your details stay in this browser until you share the generated link. The link contains the message you entered, so only send it to people you trust.</div>
-</section>
-<section id="previewPanel" class="panel hidden">
-<div class="actions" style="justify-content:space-between;margin-bottom:16px"><div><h2 class="section-title">Your little surprise</h2><p class="section-note" style="margin:0">Tap the gift, tick the promises, then open the final surprise.</p></div><button class="btn secondary" id="editBtn">← Edit</button></div>
-<div class="preview" id="giftPreview">
-<div class="eyebrow">A little something for you</div><div class="ornament">✦ ✧ ✦</div><div id="giftStage"><span class="gift" id="giftTap">🎁</span><div class="small">TAP THE GIFT TO OPEN</div></div>
-<div id="messageStage" class="hidden"><div class="heart">💗</div><h2 id="greeting">For you</h2><p id="occasionLine"></p><p id="messageOut"></p><div class="ornament">♡ ♡ ♡</div><h3 style="font-weight:normal">A few little promises</h3><div id="promiseList"></div><button class="btn" id="doorBtn">One last thing…</button></div>
-<div id="endingStage" class="hidden"><div class="door" id="doorTap">♡</div><div class="eyebrow">JUST FOR YOU</div><h2 id="endingTitle">You are loved.</h2><p id="endingOut"></p><div class="heart">💞</div><p class="small" id="signature"></p><button class="btn secondary" id="againBtn">Replay surprise ↻</button></div>
-</div>
-<div class="actions" style="justify-content:center;margin-top:18px"><button class="btn" id="shareBtn">Copy share link ↗</button><button class="btn secondary" id="copyMsgBtn">Copy message</button></div><p class="small" id="shareStatus" style="text-align:center;margin-top:10px"></p>
-</section>
-<section id="howPanel" class="panel hidden">
-<h2 class="section-title">From your heart to their screen 💌</h2><p class="section-note">Penguin Verse makes personal surprises simple.</p>
-<div class="promise">① <span><b>Create:</b> Add names, choose an occasion and write a message.</span></div><div class="promise">② <span><b>Preview:</b> Open the gift and explore the interactive surprise.</span></div><div class="promise">③ <span><b>Share:</b> Copy the unique link and send it through WhatsApp, Instagram or anywhere.</span></div>
-<div class="notice"><b>Good to know:</b> This starter version is front-end only. It does not collect payments or upload photos. Each surprise is packed into its share link, so no account or database is needed.</div><button class="btn" id="startBtn">Create a surprise</button>
-</section>
-</main>
-<footer class="foot">Made with ♡ by Penguin Verse · A little kindness goes a long way</footer>
+ <section class="panel" id="setup">
+  <h2>Create a little surprise</h2>
+  <div class="occasion" id="occasion">
+   <button class="active" data-kind="Just For You">💗 Just For You</button><button data-kind="Birthday">🎂 Birthday</button><button data-kind="Anniversary">💍 Anniversary</button><button data-kind="Proposal">💌 Proposal</button><button data-kind="Make Someone Smile">🌷 Make Someone Smile</button>
+  </div>
+  <div class="grid" style="margin-top:18px">
+   <label class="field">Their name<input id="to" placeholder="Name of your special person" maxlength="35"></label>
+   <label class="field">Your name<input id="from" placeholder="Your name" maxlength="35"></label>
+   <label class="field full">Opening message<textarea id="m0" maxlength="240"></textarea></label>
+   <label class="field">Secret 1 — Heart bow<textarea id="m1" maxlength="240"></textarea></label>
+   <label class="field">Secret 2 — Gift box<textarea id="m2" maxlength="240"></textarea></label>
+   <label class="field">Secret 3 — Letter<textarea id="m3" maxlength="240"></textarea></label>
+   <label class="field">Secret 4 — Balloon<textarea id="m4" maxlength="240"></textarea></label>
+   <label class="field full">Final message<textarea id="m5" maxlength="300"></textarea></label>
+  </div>
+  <div class="actions"><button id="startBtn">Create the surprise ✨</button><button class="secondary" id="shareBtn">Copy share link</button></div>
+  <p class="stage-desc" style="font-size:12px">Your surprise is created in this browser. Copy share link to send your personalized version.</p>
+ </section>
+
+ <section class="panel hidden" id="game">
+  <div class="tag center" id="occasionLabel">A LITTLE SURPRISE</div>
+  <h2 id="welcome" class="stage-title">A surprise for you</h2>
+  <p class="stage-desc" id="stepDesc">Four tiny surprises are waiting.</p>
+  <div class="progress"><span id="bar"></span></div>
+  <div class="stage-art" id="art"></div>
+  <div class="message hidden" id="message"></div>
+  <div class="actions"><button class="secondary" id="backBtn">← Back</button><button id="nextBtn" class="hidden">Next surprise →</button></div>
+ </section>
+ <div class="foot">Made with a little love · PENGUIN VERSE 🐧</div>
 </div>
 <script>
 const $=id=>document.getElementById(id);
-const fields=['from','to','occasion','theme','message','promises','ending'];
-const defaults={from:'Someone special',to:'My favourite person',occasion:'Just because',theme:'mix',message:'You make ordinary days feel a little more magical. I hope this small surprise reminds you how special you are.',promises:'I will always cheer for your dreams.\nI will listen, even on the difficult days.\nI will keep finding reasons to make you smile.\nI will celebrate the little things with you.',ending:'You are one of my favourite parts of this world.'};
-let data={...defaults};
-function readForm(){fields.forEach(k=>data[k]=$(k).value.trim());}
-function fillForm(){fields.forEach(k=>$(k).value=data[k]??'');}
-function encode(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));}
-function decode(str){return JSON.parse(decodeURIComponent(escape(atob(str))));}
-function switchTab(tab){['create','preview','how'].forEach(t=>{$(t+'Panel').classList.toggle('hidden',t!==tab);document.querySelector(`[data-tab="${t}"]`).classList.toggle('active',t===tab)});$('hero').classList.toggle('hidden',tab==='preview');window.scrollTo({top:0,behavior:'smooth'});}
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
-$('homeBtn').onclick=()=>switchTab('create');$('editBtn').onclick=()=>switchTab('create');$('startBtn').onclick=()=>switchTab('create');
-$('resetBtn').onclick=()=>{data={...defaults};fillForm()};
-function applyTheme(){const p=$('giftPreview');p.classList.remove('luxe','cute');if(data.theme==='luxe')p.classList.add('luxe');if(data.theme==='cute')p.classList.add('cute');}
-function build(){readForm();$('greeting').textContent=`Dear ${data.to||'you'},`; $('occasionLine').textContent=`A ${data.occasion.toLowerCase()} surprise from ${data.from||'someone special'}`;$('messageOut').textContent=data.message;$('endingOut').textContent=data.ending;$('endingTitle').textContent=data.to?`${data.to}, you matter.`:'You are loved.';$('signature').textContent=`With love, ${data.from||'someone special'}`;const list=$('promiseList');list.innerHTML='';(data.promises||'').split('\n').map(x=>x.trim()).filter(Boolean).slice(0,10).forEach((p,i)=>{const label=document.createElement('label');label.className='promise';const cb=document.createElement('input');cb.type='checkbox';const span=document.createElement('span');span.textContent=p;label.append(cb,span);list.append(label)});applyTheme();$('giftStage').classList.remove('hidden');$('messageStage').classList.add('hidden');$('endingStage').classList.add('hidden');$('shareStatus').textContent='';switchTab('preview');}
-$('makeBtn').onclick=build;
-$('giftTap').onclick=()=>{$('giftStage').classList.add('hidden');$('messageStage').classList.remove('hidden')};
-$('doorBtn').onclick=()=>{$('messageStage').classList.add('hidden');$('endingStage').classList.remove('hidden')};
-$('doorTap').onclick=()=>{$('endingOut').textContent=data.ending+' ✨'};
-$('againBtn').onclick=()=>{ $('endingStage').classList.add('hidden');$('giftStage').classList.remove('hidden')};
-function shareURL(){const base=location.href.split('#')[0];return base+'#gift='+encode(data);}
-$('shareBtn').onclick=async()=>{const url=shareURL();try{await navigator.clipboard.writeText(url);$('shareStatus').textContent='Link copied! Send it to your special person. 💗'}catch(e){$('shareStatus').textContent='Copy this link: '+url;}};
-$('copyMsgBtn').onclick=async()=>{const msg=`${data.to},\n\n${data.message}\n\n${data.ending}\n\n— ${data.from}`;try{await navigator.clipboard.writeText(msg);$('shareStatus').textContent='Your message was copied.'}catch(e){$('shareStatus').textContent=msg}};
-function loadShared(){if(location.hash.startsWith('#gift=')){try{data=decode(location.hash.slice(6));fillForm();build();$('createPanel').classList.add('hidden');$('editBtn').classList.add('hidden');$('hero').classList.add('hidden');}catch(e){}}}
+const presets={
+"Just For You":["I made this little world just to remind you how special you are.","You make ordinary moments feel a little more magical.","If I could wrap a feeling, it would be this warm smile you give me.","A tiny gift, with a whole lot of affection inside.","Some people make the world softer just by being in it."],
+"Birthday":["Today the world celebrates the day you arrived. Happy Birthday!","May your days be full of little joys and big dreams.","You deserve all the smiles, surprises and cake today.","Here's a tiny wish tucked inside a little letter.","May this new year of life be your most beautiful chapter."],
+"Anniversary":["Another chapter, another memory, and still so much to cherish.","Thank you for every laugh, every moment and every little thing.","The best memories are the ones we make together.","A little letter for a love that keeps growing.","Here's to us, and to all the beautiful days ahead."],
+"Proposal":["There is something my heart has wanted to ask you...","Every little moment with you feels worth remembering.","You make my world brighter in ways I can't explain.","I have one question, hidden inside this little letter.","Will you make a beautiful new chapter with me?"],
+"Make Someone Smile":["Just a little reminder: you matter more than you know.","I hope something lovely happens to you today.","You deserve kindness, peace and reasons to smile.","Sending a small pocket of sunshine your way.","Keep being wonderfully you. The world needs that."]
+};
+let kind="Just For You",step=0,done=[false,false,false,false],audioCtx=null,musicOn=false;
+const defaults=()=>{const p=presets[kind];["m0","m1","m2","m3","m4","m5"].forEach((id,i)=>$(id).value=p[i]);};
+document.querySelectorAll("#occasion button").forEach(b=>b.addEventListener("click",()=>{kind=b.dataset.kind;document.querySelectorAll("#occasion button").forEach(x=>x.classList.toggle("active",x===b));defaults();}));
+defaults();
+function data(){return {kind,to:$("to").value.trim()||"Someone Special",from:$("from").value.trim(),m:Array.from({length:6},(_,i)=>$("m"+i).value.trim())};}
+function encode(o){return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");}
+function decode(s){try{return JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g,"+").replace(/_/g,"/")))))}catch(e){return null}}
+function loadShared(){const s=new URLSearchParams(location.search).get("surprise");if(!s)return;const d=decode(s);if(!d)return;kind=d.kind||kind;document.querySelectorAll("#occasion button").forEach(b=>b.classList.toggle("active",b.dataset.kind===kind));$("to").value=d.to||"";$("from").value=d.from||"";(d.m||[]).forEach((v,i)=>{if($("m"+i))$("m"+i).value=v});}
 loadShared();
+$("shareBtn").onclick=async()=>{const url=location.href.split("?")[0]+"?surprise="+encode(data());try{await navigator.clipboard.writeText(url);$("shareBtn").textContent="Link copied ✓";}catch(e){prompt("Copy this link:",url)}};
+$("startBtn").onclick=()=>{step=0;done=[false,false,false,false];$("setup").classList.add("hidden");$("game").classList.remove("hidden");render();window.scrollTo({top:0,behavior:"smooth"});};
+$("backBtn").onclick=()=>{$("game").classList.add("hidden");$("setup").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});};
+$("nextBtn").onclick=()=>{if(step<4){step++;render();}};
+function vibrateGame(i){
+  if(!("vibrate" in navigator)) return;
+
+  const patterns=[
+    [100],
+    [100,60,100],
+    [200],
+    [100,50,100,50,200]
+  ];
+
+  navigator.vibrate(patterns[i] || [100]);
+}function reveal(i){done[i]=true;$vibrateGame(i);("message").textContent=data().m[i+1]||"A little message, made just for you."; $("message").classList.remove("hidden");$("nextBtn").classList.remove("hidden");}
+function render(){const d=data();$("occasionLabel").textContent=d.kind.toUpperCase()+" SURPRISE";$("welcome").textContent="A little surprise for "+d.to+" 💗";$("stepDesc").textContent=step===0?(d.m[0]||"Four tiny surprises are waiting."):"Surprise "+step+" of 4";$("bar").style.width=(step*25)+"%";$("message").classList.add("hidden");$("nextBtn").classList.add("hidden");
+if(step===0){$("stepDesc").textContent=d.m[0]||"Four tiny surprises are waiting."; $("art").innerHTML='<div style="text-align:center"><div style="font-size:76px">💌</div><p>Ready for a little magic?</p></div>';$("nextBtn").textContent="Begin →";$("nextBtn").classList.remove("hidden");$("nextBtn").onclick=()=>{step=1;render()};return}
+if(step===1){$("art").innerHTML='<div class="heart">❤️</div><div class="bow" id="bow" draggable="true">🎀</div>';const bow=$("bow"),heart=$("art").querySelector(".heart");let moved=false;bow.addEventListener("pointerdown",e=>{moved=true;bow.setPointerCapture(e.pointerId)});bow.addEventListener("pointermove",e=>{if(!moved)return;const r=$("art").getBoundingClientRect();bow.style.left=(e.clientX-r.left-24)+"px";bow.style.top=(e.clientY-r.top-24)+"px"});bow.addEventListener("pointerup",e=>{moved=false;const a=bow.getBoundingClientRect(),b=heart.getBoundingClientRect();if(!(a.right<b.left||a.left>b.right||a.bottom<b.top||a.top>b.bottom))reveal(0)});$("stepDesc").textContent="Drag the little bow onto the heart."; }
+if(step===2){$("art").innerHTML='<div class="gift" id="gift" role="button" aria-label="Tap gift">🎁</div><p style="position:absolute;bottom:5px">Tap the gift 3 times</p>';let n=0;$("gift").onclick=()=>{n++;$("gift").classList.remove("shake");void $("gift").offsetWidth;$("gift").classList.add("shake");if(n>=3){$("gift").textContent="🎉";reveal(1)}};$("stepDesc").textContent="Tap the gift box three times to open it."; }
+if(step===3){$("art").innerHTML='<div class="letter" id="letter">✉️<br><b>A little letter</b><br><small>Tap to unfold</small></div>';$("letter").onclick=()=>{ $("letter").innerHTML="With love,<br>"+(d.from||"Someone who cares")+" 💗";reveal(2)};$("stepDesc").textContent="Tap the letter to unfold your message."; }
+if(step===4){$("art").innerHTML='<div class="balloon" id="balloon">🎈</div>';$("balloon").onclick=()=>{$("balloon").classList.add("pop");setTimeout(()=>{ $("art").innerHTML='<div style="font-size:70px">✨💖✨</div>';reveal(3);$("bar").style.width="100%";$("stepDesc").textContent="You found every little surprise!";$("nextBtn").textContent="See final message →";$("nextBtn").onclick=finale;},350)};$("stepDesc").textContent="Pop the balloon to reveal the last secret."; }
+if(step>0&&step<4){$("nextBtn").textContent="Next surprise →"; $("nextBtn").onclick=()=>{ step++; render();
+  };
+}
+}function finale(){const d=data();$("stepDesc").textContent="A final little note";$("art").innerHTML='<div style="font-size:70px">💗🐧💗</div>';$("message").textContent=(d.m[5]||"You are someone worth celebrating, today and always.")+(d.from?"\n\nWith love, "+d.from:"");$("message").classList.remove("hidden");$("nextBtn").classList.add("hidden");$("bar").style.width="100%";}
+$("musicBtn").onclick=()=>{if(!musicOn){try{audioCtx=new (window.AudioContext||window.webkitAudioContext)();const notes=[261.63,329.63,392,329.63];let i=0;const play=()=>{if(!musicOn)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type="sine";o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.035,audioCtx.currentTime+.04);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.5);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.52);setTimeout(play,620)};musicOn=true;play();$("musicBtn").textContent="♫ Music: On";}catch(e){$("musicBtn").textContent="Music unavailable";}}else{musicOn=false;if(audioCtx)audioCtx.close();$("musicBtn").textContent="♫ Music: Off";}};
 </script>
-</body></html>
+</body>
+</html>
