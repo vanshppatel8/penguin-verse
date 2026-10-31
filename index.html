@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff0f3">
+<title>Penguin Verse — Little surprises, big feelings</title>
+<style>
+:root{--ink:#442b3a;--muted:#856d79;--pink:#ec6b96;--rose:#b92f63;--cream:#fff8ed;--paper:#fffdf9;--line:#f0dce3;--shadow:0 18px 55px #74364d18}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 10% 10%,#ffe0e8,transparent 32%),radial-gradient(circle at 95% 30%,#fff0c9,transparent 28%),#fff8f2;min-height:100vh}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1120px;margin:auto;padding:20px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 26px}.brand{font-size:25px;font-weight:bold;letter-spacing:.2px}.brand span{color:var(--rose)}.tag{font:12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.pill{border:1px solid var(--line);background:#fff9;border-radius:99px;padding:9px 14px;color:var(--ink);font:12px Arial,sans-serif}
+.hero{text-align:center;padding:32px 12px 26px}.eyebrow{font:11px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--rose)}h1{font-size:clamp(38px,7vw,68px);line-height:1.02;margin:14px 0 12px;font-weight:normal}h1 em{color:var(--rose)}.sub{font:15px/1.7 Arial,sans-serif;color:var(--muted);max-width:580px;margin:0 auto}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:20px 0 26px}.tab{border:1px solid var(--line);background:#fff9;padding:11px 17px;border-radius:30px;color:var(--ink);font:13px Arial,sans-serif}.tab.active{background:#51283f;color:white;border-color:#51283f}
+.panel{background:#fffdf9eF;border:1px solid #f1dce3;border-radius:24px;box-shadow:var(--shadow);padding:clamp(18px,4vw,34px);max-width:850px;margin:0 auto 28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}.field label{font:12px Arial,sans-serif;color:#765967;letter-spacing:.5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 13px;color:var(--ink);outline:none;font:14px Arial,sans-serif}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pink);box-shadow:0 0 0 3px #ec6b9620}.wide{grid-column:1/-1}.hint{font:11px/1.5 Arial,sans-serif;color:var(--muted);margin-top:-7px}
+.btn{border:0;border-radius:99px;padding:13px 22px;background:linear-gradient(110deg,#ed6d99,#c83f75);color:white;font:13px Arial,sans-serif;box-shadow:0 8px 20px #d94c7c33}.btn.secondary{background:#fff;color:var(--rose);border:1px solid var(--line);box-shadow:none}.btn.dark{background:#51283f}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}.section-title{font-size:25px;font-weight:normal;margin:0 0 8px}.section-note{font:13px/1.6 Arial,sans-serif;color:var(--muted);margin:0 0 22px}
+.preview{max-width:500px;margin:0 auto;text-align:center;background:linear-gradient(150deg,#fff8e9,#fff0f4);border:1px solid #f2d9df;border-radius:22px;padding:30px 22px;min-height:430px;position:relative;overflow:hidden}.preview.luxe{background:radial-gradient(circle at 50% 35%,#5e3154,#241426 75%);color:#fff2dd;border-color:#68425e}.preview.cute{background:linear-gradient(145deg,#fef0f5,#fef8d9)}.preview h2{font-size:34px;font-weight:normal;margin:15px 0 8px}.preview p{font:14px/1.7 Arial,sans-serif;color:inherit;opacity:.82}.gift{font-size:100px;display:block;filter:drop-shadow(0 12px 12px #a83d5b25);animation:bob 2.5s ease-in-out infinite;cursor:pointer}.heart{font-size:38px;animation:pulse 1.4s infinite;display:inline-block}.ornament{font-size:25px;letter-spacing:10px;color:#cf7292;margin:18px 0}.promise{display:flex;align-items:flex-start;gap:10px;text-align:left;background:#fff9;border:1px solid #f1dce3;border-radius:12px;padding:10px;margin:8px 0;font:13px Arial,sans-serif}.promise input{accent-color:#d84e80;margin-top:2px}.small{font:11px Arial,sans-serif;color:var(--muted)}.door{margin:22px auto 10px;width:190px;height:230px;border:5px solid #c68a9f;border-radius:95px 95px 8px 8px;background:linear-gradient(90deg,#5d2448,#9d426d);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 25px #290d25;color:#ffe7b7;font-size:48px;cursor:pointer}.hidden{display:none!important}.foot{text-align:center;color:#a48c98;font:11px Arial,sans-serif;padding:15px 0 28px}.notice{font:12px/1.5 Arial,sans-serif;background:#fff1f5;border:1px solid #f5d2df;padding:12px 14px;border-radius:12px;color:#79445b;margin:16px 0}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+@media(max-width:650px){.app{padding:13px}.top{margin-bottom:10px}.brand{font-size:21px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.hero{padding:26px 6px 18px}.panel{border-radius:19px}.preview{min-height:400px;padding:25px 17px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div><div class="brand">🐧 <span>Penguin</span> Verse</div><div class="tag">little surprises · big feelings</div></div><button class="pill" id="homeBtn">⌂ Home</button></header>
+<section class="hero" id="hero"><div class="eyebrow">A tiny corner of the internet, made with love</div><h1>Make someone feel<br><em>extra special.</em></h1><p class="sub">Create a personal digital surprise for your favourite person. Add your words, choose a mood, and share one little link that can make their day.</p></section>
+<nav class="tabs" id="tabs"><button class="tab active" data-tab="create">Create a surprise</button><button class="tab" data-tab="preview">Preview</button><button class="tab" data-tab="how">How it works</button></nav>
+<main>
+<section id="createPanel" class="panel">
+<h2 class="section-title">Your surprise, your story ✨</h2><p class="section-note">Fill in a few details. Your surprise is built right here in your browser.</p>
+<div class="grid">
+<div class="field"><label>FROM</label><input id="from" maxlength="35" placeholder="Your name" value="Someone special"></div>
+<div class="field"><label>TO</label><input id="to" maxlength="35" placeholder="Their name" value="My favourite person"></div>
+<div class="field"><label>OCCASION</label><select id="occasion"><option>Just because</option><option>Birthday</option><option>Anniversary</option><option>I'm sorry</option><option>Thank you</option><option>Long distance love</option><option>Friendship</option><option>Congratulations</option></select></div>
+<div class="field"><label>DESIGN MOOD</label><select id="theme"><option value="mix">A little bit of everything</option><option value="romantic">Romantic blush</option><option value="luxe">Midnight luxury</option><option value="cute">Cute & playful</option></select></div>
+<div class="field wide"><label>YOUR PERSONAL MESSAGE</label><textarea id="message" maxlength="600" placeholder="Write something from your heart...">You make ordinary days feel a little more magical. I hope this small surprise reminds you how special you are.</textarea></div>
+<div class="field wide"><label>YOUR PROMISES / LITTLE REASONS</label><textarea id="promises" maxlength="500" placeholder="One promise per line">I will always cheer for your dreams.\nI will listen, even on the difficult days.\nI will keep finding reasons to make you smile.\nI will celebrate the little things with you.</textarea><div class="hint">Write one promise or reason per line. You can also use this for friendship, family or a thank-you.</div></div>
+<div class="field wide"><label>ENDING LINE</label><input id="ending" maxlength="100" value="You are one of my favourite parts of this world."></div>
+</div>
+<div class="actions"><button class="btn" id="makeBtn">Create my surprise ♥</button><button class="btn secondary" id="resetBtn">Reset example</button></div>
+<div class="notice">Privacy note: your details stay in this browser until you share the generated link. The link contains the message you entered, so only send it to people you trust.</div>
+</section>
+<section id="previewPanel" class="panel hidden">
+<div class="actions" style="justify-content:space-between;margin-bottom:16px"><div><h2 class="section-title">Your little surprise</h2><p class="section-note" style="margin:0">Tap the gift, tick the promises, then open the final surprise.</p></div><button class="btn secondary" id="editBtn">← Edit</button></div>
+<div class="preview" id="giftPreview">
+<div class="eyebrow">A little something for you</div><div class="ornament">✦ ✧ ✦</div><div id="giftStage"><span class="gift" id="giftTap">🎁</span><div class="small">TAP THE GIFT TO OPEN</div></div>
+<div id="messageStage" class="hidden"><div class="heart">💗</div><h2 id="greeting">For you</h2><p id="occasionLine"></p><p id="messageOut"></p><div class="ornament">♡ ♡ ♡</div><h3 style="font-weight:normal">A few little promises</h3><div id="promiseList"></div><button class="btn" id="doorBtn">One last thing…</button></div>
+<div id="endingStage" class="hidden"><div class="door" id="doorTap">♡</div><div class="eyebrow">JUST FOR YOU</div><h2 id="endingTitle">You are loved.</h2><p id="endingOut"></p><div class="heart">💞</div><p class="small" id="signature"></p><button class="btn secondary" id="againBtn">Replay surprise ↻</button></div>
+</div>
+<div class="actions" style="justify-content:center;margin-top:18px"><button class="btn" id="shareBtn">Copy share link ↗</button><button class="btn secondary" id="copyMsgBtn">Copy message</button></div><p class="small" id="shareStatus" style="text-align:center;margin-top:10px"></p>
+</section>
+<section id="howPanel" class="panel hidden">
+<h2 class="section-title">From your heart to their screen 💌</h2><p class="section-note">Penguin Verse makes personal surprises simple.</p>
+<div class="promise">① <span><b>Create:</b> Add names, choose an occasion and write a message.</span></div><div class="promise">② <span><b>Preview:</b> Open the gift and explore the interactive surprise.</span></div><div class="promise">③ <span><b>Share:</b> Copy the unique link and send it through WhatsApp, Instagram or anywhere.</span></div>
+<div class="notice"><b>Good to know:</b> This starter version is front-end only. It does not collect payments or upload photos. Each surprise is packed into its share link, so no account or database is needed.</div><button class="btn" id="startBtn">Create a surprise</button>
+</section>
+</main>
+<footer class="foot">Made with ♡ by Penguin Verse · A little kindness goes a long way</footer>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const fields=['from','to','occasion','theme','message','promises','ending'];
+const defaults={from:'Someone special',to:'My favourite person',occasion:'Just because',theme:'mix',message:'You make ordinary days feel a little more magical. I hope this small surprise reminds you how special you are.',promises:'I will always cheer for your dreams.\nI will listen, even on the difficult days.\nI will keep finding reasons to make you smile.\nI will celebrate the little things with you.',ending:'You are one of my favourite parts of this world.'};
+let data={...defaults};
+function readForm(){fields.forEach(k=>data[k]=$(k).value.trim());}
+function fillForm(){fields.forEach(k=>$(k).value=data[k]??'');}
+function encode(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));}
+function decode(str){return JSON.parse(decodeURIComponent(escape(atob(str))));}
+function switchTab(tab){['create','preview','how'].forEach(t=>{$(t+'Panel').classList.toggle('hidden',t!==tab);document.querySelector(`[data-tab="${t}"]`).classList.toggle('active',t===tab)});$('hero').classList.toggle('hidden',tab==='preview');window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+$('homeBtn').onclick=()=>switchTab('create');$('editBtn').onclick=()=>switchTab('create');$('startBtn').onclick=()=>switchTab('create');
+$('resetBtn').onclick=()=>{data={...defaults};fillForm()};
+function applyTheme(){const p=$('giftPreview');p.classList.remove('luxe','cute');if(data.theme==='luxe')p.classList.add('luxe');if(data.theme==='cute')p.classList.add('cute');}
+function build(){readForm();$('greeting').textContent=`Dear ${data.to||'you'},`; $('occasionLine').textContent=`A ${data.occasion.toLowerCase()} surprise from ${data.from||'someone special'}`;$('messageOut').textContent=data.message;$('endingOut').textContent=data.ending;$('endingTitle').textContent=data.to?`${data.to}, you matter.`:'You are loved.';$('signature').textContent=`With love, ${data.from||'someone special'}`;const list=$('promiseList');list.innerHTML='';(data.promises||'').split('\n').map(x=>x.trim()).filter(Boolean).slice(0,10).forEach((p,i)=>{const label=document.createElement('label');label.className='promise';const cb=document.createElement('input');cb.type='checkbox';const span=document.createElement('span');span.textContent=p;label.append(cb,span);list.append(label)});applyTheme();$('giftStage').classList.remove('hidden');$('messageStage').classList.add('hidden');$('endingStage').classList.add('hidden');$('shareStatus').textContent='';switchTab('preview');}
+$('makeBtn').onclick=build;
+$('giftTap').onclick=()=>{$('giftStage').classList.add('hidden');$('messageStage').classList.remove('hidden')};
+$('doorBtn').onclick=()=>{$('messageStage').classList.add('hidden');$('endingStage').classList.remove('hidden')};
+$('doorTap').onclick=()=>{$('endingOut').textContent=data.ending+' ✨'};
+$('againBtn').onclick=()=>{ $('endingStage').classList.add('hidden');$('giftStage').classList.remove('hidden')};
+function shareURL(){const base=location.href.split('#')[0];return base+'#gift='+encode(data);}
+$('shareBtn').onclick=async()=>{const url=shareURL();try{await navigator.clipboard.writeText(url);$('shareStatus').textContent='Link copied! Send it to your special person. 💗'}catch(e){$('shareStatus').textContent='Copy this link: '+url;}};
+$('copyMsgBtn').onclick=async()=>{const msg=`${data.to},\n\n${data.message}\n\n${data.ending}\n\n— ${data.from}`;try{await navigator.clipboard.writeText(msg);$('shareStatus').textContent='Your message was copied.'}catch(e){$('shareStatus').textContent=msg}};
+function loadShared(){if(location.hash.startsWith('#gift=')){try{data=decode(location.hash.slice(6));fillForm();build();$('createPanel').classList.add('hidden');$('editBtn').classList.add('hidden');$('hero').classList.add('hidden');}catch(e){}}}
+loadShared();
+</script>
+</body></html>
